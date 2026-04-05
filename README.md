@@ -12,9 +12,7 @@ Funcionalidades
       Menu hamburger responsivo + navegação desktop
       
       Integração WhatsApp (31) 99884-1410 e Google Maps
-      
-      Google Tag Manager (GTM-KDQ37NKJ) para analytics
-      
+
       Deploy pronto para Netlify (netlify.toml configurado)
 
 Tecnologias
