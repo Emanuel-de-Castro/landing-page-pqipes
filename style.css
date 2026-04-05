@@ -1,0 +1,1077 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow-x: hidden; */
+    
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 30%;
+    max-width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: fadeInScale 0.3s ease;
+}
+@keyframes fadeInScale {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+@media (max-width: 768px) {
+    .modal-content { width: 90%; }
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #e6be9f;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.numero-completa, .ddd {
+    color:#004c3f;
+    position: relative; 
+    bottom: 10px;
+}
+
+/* MENU RESPONSIVO */
+.nav-desktop {
+    text-align: center;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-desktop li {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 5px;
+    padding: 10px 12px;
+    border-radius: 30px;
+    background-color: #184e48;
+    font-size: 14px;
+}
+
+.nav-desktop .icones {
+    height: 30px;
+    width: 30px;
+}
+
+/* MENU HAMBURGER */
+.menu-hamburger {
+    position: fixed;      /* antes estava absolute */
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    display: none;        /* continua escondido no desktop */
+    background: none;
+    border: none;
+    color: #184e48;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Quando o menu estiver aberto (classe .active no JS) */
+.menu-hamburger.active {
+    color: white;
+}
+
+
+
+/* MENU MOBILE LATERAL */
+.nav-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #184e48;
+    flex-direction: column;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.nav-mobile.active {
+    left: 0;
+}
+
+.nav-mobile li {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile li:hover {
+    padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-mobile .icones {
+    height: 25px;
+    width: 25px;
+    flex-shrink: 0;
+}
+
+/* Overlay para mobile */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* SEÇÃO 1: HERO COM FORMULÁRIO */
+.primeiro {
+    background-image: url(./Fundos/PqIpes.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+    max-width: 650px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.logo-luiz {
+    display: block;
+    max-width: 850px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 350px;
+    margin: 30px auto;
+    padding: 0 15px;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 350px;
+    z-index: 10;
+    margin-left: 5%;
+      margin-left: 5px !important;
+
+}
+
+.cima {
+    border-radius: 20px 20px 20px 0;
+    padding: 15px 10px;
+    background-color: #e6be9f;
+    color: #184e48;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-container {
+    background: #0d2a1c;
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    width: 100%;
+}
+
+.form input[type="text"], 
+.form input[type="tel"], 
+.form input[type="email"] {
+    width: 95%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.carousel img {
+  cursor: zoom-in !important;
+}
+.image-modal {
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#sobre {
+    color: white;
+    text-align: center;
+    margin: 40px 0 20px;
+    line-height: 1.3;
+    position: absolute;
+    top:65%;
+     font-family: "Montserrat", sans-serif;
+}
+
+.submit {
+    padding: 10px;
+    margin-top: 10px; 
+    margin-left: 25%;
+}
+
+
+/* SEÇÃO 2: SOBRE */
+.segundo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 15px;
+    gap: 30px;
+}
+
+.textoSegundo {
+    color: #184e48;
+    font-size: 1.8em;
+    line-height: 1.3;
+    width: 100%;
+    text-align: center;
+}
+
+.texto2Segundo {
+    color: #184e48;
+    font-size: 1em;
+    width: 100%;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* SEÇÃO 3: BENEFÍCIOS */
+.terceiro {
+    background-image: url(./Fundos/BG3.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 40px 15px;
+    color: white;
+    text-align: center;
+}
+
+.textoTerceiro {
+    color: white;
+    font-size: 2em;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.mil {
+    background-color: #b47247;
+    border-radius: 100px;
+    padding: 6px 16px;
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+.trena {
+    height: 50px;
+    width: 50px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.cards-beneficios {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.cards-beneficios .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.iconesM {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.selos {
+    display: none;
+}
+
+/* SEÇÃO 4: CARACTERÍSTICAS */
+.quarta {
+    background-image: url(./Fundos/BG1.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 40px 15px;
+    border-radius: 0;
+}
+
+.container3 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.item2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.container3 .iconesM {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 8px;
+}
+
+.item2 p {
+    margin: 0;
+    color: white;
+    font-size: 0.95em;
+}
+
+.destaque {
+    display: inline-block;
+    background-color: #184e48;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-top: 8px;
+    font-size: 0.85em;
+    line-height: 1.2;
+}
+
+/* SEÇÃO 5: NATUREZA */
+.quinto {
+    background-image: url(./Fundos/BG4.jpg);
+    background-size: cover;
+    padding: 40px 15px;
+}
+
+.perto-natureza {
+    background-size: cover;
+    background-position: center;
+    padding: 30px 0;
+}
+
+.perto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.perto-icone {
+    width: 100px;
+    height: 100px;
+}
+
+.perto-texto {
+    font-size: 1.6em;
+    color: #184e48;
+    text-align: center;
+    margin: 0;
+}
+
+.mapa, .mapaIMG {
+    width: 100%;
+    height: auto;
+    /* max-height: 400px; */
+    /* margin: 20px 0; */
+}
+
+/* SEÇÃO 6: MAPA */
+.sexto {
+    background-size: cover;
+    background-image: url(./imagesPI/mapa2.jpg);
+    /* background-position: center; */
+    width: 100%;
+    padding: 30px 15px;
+    position: relative;
+    color: white;
+    /* min-height: 400px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sexto-topo {
+    text-align: center;
+    position: static;
+    width: 100%;
+}
+
+.sexto-topo h2 {
+    font-size: 2em;
+    margin: 0 0 10px;
+    line-height: 1.2;
+}
+
+.sexto-topo p {
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.badge-metros {
+    display: inline-block;
+    background-color: #c47b4b;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-left: 6px;
+    font-size: 0.9em;
+}
+
+/* SEÇÃO 7 */
+.setima {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding: 40px 15px;
+    position: relative;
+    color: white;
+}
+
+.setimo-topo {
+    text-align: center;
+    font-size: 1.8em;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.containerTxt {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: white;
+    position: static;
+    transform: none;
+    width: 100%;
+    top: auto;
+    left: auto;
+}
+
+.itemTxt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+}
+
+.itemTxt img {
+    width: 80px;
+    height: 80px;
+    margin-top: 0;
+}
+
+.destaqueTxt {
+    background: linear-gradient(90deg, #5a2c1c, #d38a58);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+}
+
+/* CARROSSEL */
+.carousel-container {
+    width: 95%;
+    max-width: 1200px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.slide img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(20, 99, 86, 0.9);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(14, 70, 61, 1);
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* BANNER DE CONTATO */
+
+/* CSS - Adicione ao style.css */
+.localizacao-horizontal {
+  background: linear-gradient(135deg, #0d2a1c 0%, #184e48 100%);
+  padding: 40px 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-localizacao {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-localizacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 15px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  min-width: 140px;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 160px;
+}
+
+.item-localizacao:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.2);
+}
+
+.item-localizacao .icone {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.item-localizacao h3 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 8px 0 5px 0;
+  color: #e6be9f;
+}
+
+.item-localizacao p {
+  font-size: 0.85em;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .container-localizacao {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .primeiro {
+    flex-direction: column !important; /* Stack vertical garantido */
+    padding: 20px 15px 120px 15px; /* Espaço top/bottom para menu/logo/h1 */
+    min-height: 100vh; /* Preenche tela */
+  }
+  
+  .logo {
+    order: 1; /* Primeiro: logo */
+    margin: 20px auto 30px auto !important;
+    max-height: 120px; /* Limita altura se necessário */
+    width: auto;
+  }
+  
+  .container { /* Formulário */
+    order: 2; /* Segundo: container */
+    transform: none !important;
+    position: static;
+    z-index: 1;
+    margin: 20px auto !important;
+    max-width: 100%;
+  }
+  
+  #sobre {
+    order: 3; /* Terceiro: h1 */
+    position: static !important; /* Fluxo normal */
+    text-align: center;
+    margin: 30px auto 20px auto;
+    padding: 0 10px;
+    max-width: 90%;
+    margin-bottom: 50px;
+  }
+   
+  .item-localizacao {
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: auto;
+    max-width: 100%;
+    padding: 15px 20px;
+  }
+  
+  .item-localizacao .icone {
+    font-size: 1.8em;
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+  
+  .item-localizacao h3,
+  .item-localizacao p {
+    text-align: left;
+  }
+}
+
+.consultor {
+    background:  #184e48;
+    border-radius: 20px;
+    padding: 20px 15px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    max-width: 350px;
+}
+
+.consultor-wpp {
+    background:  #184e48;
+    border-radius: 20px;
+    padding: 20px 15px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    max-width: 350px;
+    margin-bottom: 50px;
+}
+
+.book-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #7c3a24 70%, #184e48);
+    border-radius: 20px;
+    padding: 20px 15px;
+    color: white;
+    font-weight: 600;
+    max-width: calc(100% - 30px);
+    margin: 20px auto;
+    gap: 15px;
+    margin-top: -50px;
+}
+
+.book-text {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    text-align: center;
+    font-size: 0.95em;
+}
+
+.book-text .divider {
+    display: none;
+}
+
+.book-icon img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+}
+
+/* MAPA DO GOOGLE */
+.containerMapa {
+    width: 80vw;      /* 100% viewport */
+    margin-left: calc(-50vw + 50%) ;  /* Centraliza perfeitamente */
+    padding: 0 ;
+    margin: 30px 0 ;
+    position: relative ;
+    left: 50% ;
+    transform: translateX(-50%) ;
+}
+
+.containerMapa iframe {
+    width: 100% !important;
+    height: 450px !important;     /* Altura maior */
+    border-radius: 0 !important;  /* Sem bordas */
+    display: block !important;
+}
+
+.textoMp {
+    color: #004c3f;
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* CONTATO */
+.container-tel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.telefone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 40px;
+    font-size: 2.5em;
+    color: #004c3f;
+}
+
+.telefone .icone, .telefone .icone-click {
+    width: 40px;
+    height: 40px;
+}
+
+.contato-redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 15px;
+    flex-wrap: wrap;
+}
+
+.contato-redes .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95em;
+    color: #214d45;
+    text-align: center;
+}
+
+.item .icone {
+    display: block;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+
+.divisor {
+    width: 2px;
+    height: 40px;
+    background: #b2876f;
+    display: none;
+}
+
+/* MEDIA QUERIES - TABLETS (768px+) */
+@media (min-width: 768px) {
+    .menu-hamburger {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: none;
+    }
+
+    .menu-overlay {
+        display: none;
+    }
+
+    .nav-desktop li {
+        margin: 0 8px;
+        padding: 10px 16px;
+        font-size: 15px;
+    }
+
+    .nav-desktop .icones {
+        height: 35px;
+        width: 35px;
+    }
+
+    #sobre {
+        font-size: 2.5em;
+    }
+
+    .segundo-container {
+        flex-direction: row;
+        gap: 40px;
+        padding: 60px 30px;
+    }
+
+    .textoSegundo {
+        width: 45%;
+        font-size: 2.2em;
+        text-align: left;
+    }
+
+    .texto2Segundo {
+        width: 45%;
+        text-align: left;
+        font-size: 1.05em;
+    }
+
+    .cards-beneficios {
+        flex-direction: row;
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .cards-beneficios .item {
+        flex: 0 1 calc(33.33% - 30px);
+    }
+
+    .container3 {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .item2 {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .perto-container {
+        flex-direction: row;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .containerTxt {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .itemTxt {
+        flex: 0 1 calc(50% - 15px);
+    }
+
+    .slide {
+        min-width: 50%;
+    }
+
+    .book-banner {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .book-text .divider {
+        display: block;
+    }
+
+    .contato-redes .item {
+        flex: 0 1 auto;
+    }
+
+    .divisor {
+        display: block;
+    }
+
+   
+}
+
+/* MOBILE - MENU HAMBURGER */
+@media (max-width: 767px) {
+    .menu-hamburger {
+        display: block;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: flex;
+    }
+
+     .textoMapa {
+        display: none;
+    }
+    .containerMapa iframe {
+        width: 100%;
+        height: 350px;
+        border-radius: 10px;
+    }
+    .containerMapa {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+        margin: 30px 0;
+        padding: 0 15px;
+    }
+
+    .telefone {
+        font-size: medium;
+    }
+}
+
+/* MEDIA QUERIES - DESKTOPS (1200px+) */
+@media (min-width: 1200px) {
+    .segundo-container {
+        flex-direction: row;
+        gap: 60px;
+        padding: 80px 8%;
+    }
+
+    .textoSegundo {
+        width: 45%;
+        font-size: 3em;
+    }
+
+    .texto2Segundo {
+        width: 40%;
+        font-size: 1.25em;
+    }
+
+    #sobre {
+        font-size: 2.7em;
+    }
+
+    .cards-beneficios {
+        gap: 60px;
+    }
+
+    .cards-beneficios .item {
+        font-size: 1.3rem;
+    }
+
+    .iconesM {
+        width: 180px;
+        height: 180px;
+    }
+
+    .container3 .iconesM {
+        width: 140px;
+        height: 140px;
+    }
+
+    .perto-container {
+        gap: 40px;
+    }
+
+    .perto-icone {
+        width: 140px;
+        height: 140px;
+    }
+
+    .perto-texto {
+        font-size: 3rem;
+    }
+
+    .containerTxt {
+        top: 300px;
+        left: 60%;
+        transform: translateX(-50%);
+        position: absolute;
+        width: 80%;
+    }
+
+    .itemTxt {
+        flex: 0 1 auto;
+    }
+
+    .slide {
+        min-width: 33.33%;
+    }
+
+    .containerMapa iframe {
+        width: 600px;
+        height: 450px;
+    }
+
+    .textoMapa {
+        margin-left: 60%;
+        margin-top: 150px;
+        font-size: 3em;
+        text-align: left;
+    }
+}
